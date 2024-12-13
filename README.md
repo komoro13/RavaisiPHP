@@ -82,14 +82,14 @@ function sendOrder($table, $order_string, $order_table, $price)
 ```
 **Explanation**
 * **Functionality:**
-  *This function takes parameters for the table name, order string, order table, and price, and inserts the order into the specified MySQL table.
+  * This function takes parameters for the table name, order string, order table, and price, and inserts the order into the specified MySQL table.
 * **String Preparation:**
-  *It uses a method (prepare_string) to sanitize input data to prevent SQL injection.
+  * It uses a method (prepare_string) to sanitize input data to prevent SQL injection.
 * **Order Index Handling:**
-  *It checks for existing orders in the table. If none exist, it inserts the new order.
+  * It checks for existing orders in the table. If none exist, it inserts the new order.
    If there are existing orders, it retrieves the last order index to increment it for the new order.
 * **Database Interaction:**
-  *The function executes SQL queries to insert the order and returns true or false based on the success of the operation.
+  * The function executes SQL queries to insert the order and returns true or false based on the success of the operation.
 
 ## Usage
 
