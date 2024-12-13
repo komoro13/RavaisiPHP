@@ -31,6 +31,65 @@ The RavaisiPDA Backend is built using PHP and serves as the interface between th
 
 4. **Configure Database Connection**: 
    * Ensure that the database credentials in your PHP files match those of your MySQL database.
+## Basic Functionality
+
+### Send Order Function
+
+The `sendOrder` function handles the process of sending an order to the MySQL database. It prepares the order details and executes the appropriate SQL commands to store the order.
+
+```php
+
+function sendOrder($table, $order_string, $order_table, $price)
+{
+    $table = $this->prepare_string($table);
+    $order_string = $this->prepare_string($order_string);
+    $order_table =  $this->prepare_string($order_table);
+    $price = $this->prepare_string($price);
+    $date_time = date("Y-m-d h:i:sa");
+    $this->sql = "SELECT order_index FROM ".$table. " WHERE order_table = "."'".$order_table."' AND closed=0 ORDER BY order_index DESC LIMIT 1";
+    $result = mysqli_query($this->db_connect(), $this->sql);
+    $res = "";
+    $order_index = "";
+    if ($result == "")
+    {
+        $this->sql = "INSERT INTO ".$table." (order_string, date_time, order_table, price ) VALUES ('".$order_string."','".$date_time."','".$order_table."','".$price."')";
+        if (mysqli_query($this->db_connect(), $this->sql))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }   
+    else
+    {
+        $row = mysqli_fetch_assoc($result);
+        $res = intval($row["order_index"]);
+        $res = $res + 1;
+        $order_index = $this->prepare_string($res);
+        $this->sql = "INSERT INTO ".$table." (order_string, date_time, order_table, price, order_index ) VALUES ('".$order_string."','".$date_time."','".$order_table."','".$price."','".$order_index."')";
+        if (mysqli_query($this->db_connect(), $this->sql))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+```
+**Explanation**
+* **Functionality:**
+  *This function takes parameters for the table name, order string, order table, and price, and inserts the order into the specified MySQL table.
+* **String Preparation:**
+  *It uses a method (prepare_string) to sanitize input data to prevent SQL injection.
+* **Order Index Handling:**
+  *It checks for existing orders in the table. If none exist, it inserts the new order.
+   If there are existing orders, it retrieves the last order index to increment it for the new order.
+* **Database Interaction:**
+  *The function executes SQL queries to insert the order and returns true or false based on the success of the operation.
 
 ## Usage
 
