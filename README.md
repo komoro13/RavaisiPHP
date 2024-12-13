@@ -90,7 +90,37 @@ function sendOrder($table, $order_string, $order_table, $price)
    If there are existing orders, it retrieves the last order index to increment it for the new order.
 * **Database Interaction:**
   * The function executes SQL queries to insert the order and returns true or false based on the success of the operation.
+## Database Structure
 
+The RavaisiPDA application utilizes a MySQL database consisting of four main tables: **Orders**, **Products**, **Categories**, and **Toppings**.
+### Orders
+<img src="rsc/database.csv">
+*Orders Table: Displays all incoming orders, including details such as order ID, serialized order string, date and time of submission, total price, order index, and status indicators for loaded, printed, and closed orders.*
+### 1. Orders Table
+* **id**: Unique identifier for each order.
+* **order_string**: Contains the serialized representation of the order.
+* **date_time**: Records the date and time the order was sent.
+* **price**: The total price of the order.
+* **order_index**: An index that tracks the order's position, starting from the first order made by a specific table until the customers leave.
+* **loaded**: Boolean indicating whether the order has been opened by the user of the desktop application.
+* **printed**: Boolean indicating whether the order has been printed.
+* **closed**: Boolean indicating if the order is still open or if it has been closed.
+
+### 2. Products Table
+* **id**: Unique identifier for each product.
+* **name**: The name of the product.
+* **price**: The price of the product.
+* **category_id**: Foreign key referencing the category the product belongs to.
+* **toppings**: Optional toppings that can be associated with the product.
+
+### 3. Categories Table
+* **id**: Unique identifier for each category.
+* **name**: The name of the category.
+
+### 4. Toppings Table
+* **id**: Unique identifier for each topping.
+* **name**: The name of the topping.
+* **extra_charge**: Additional cost associated with the topping.
 ## Usage
 
 * The Android application will make API calls to the PHP scripts to manage products, categories, and orders.
