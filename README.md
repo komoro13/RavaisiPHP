@@ -5,24 +5,24 @@ This repository contains PHP scripts used by the Android app in the Restaurant P
 
 ## Scripts
 
-**AddCategory.php:** Adds a new category to the database.
-**AddProduct.php:** Adds a new product to the database.
-**AddTopping.php:** Adds a new topping to the database.
-**DataBase.php:** Contains database interaction functions.
-**DataBaseConfig.php:** Configures database connection settings.
-**DeleteCategory.php:** Deletes a category from the database.
-**DeleteProduct.php:** Deletes a product from the database.
-**DeleteTopping.php:** Deletes a topping from the database.
-**GetCategories.php:** Retrieves all categories from the database.
-**GetItems.php:** Retrieves details of items in the database.
-**GetOrder.php:** Retrieves details of a specific order.
-**GetOrderStrings.php:** Retrieves strings related to orders.
-**GetOrders.php:** Retrieves all orders from the database.
-**GetProductToppings.php:** Retrieves toppings for a specific product.
-**GetProducts.php:** Retrieves all products from the database.
-**GetToppings.php:** Retrieves all toppings from the database.
-**SendOrder.php:** Sends a new order to the database.
-**SubmitReport.php:** Submits a report to the database.
+* **AddCategory.php:** Adds a new category to the database.
+* **AddProduct.php:** Adds a new product to the database.
+* **AddTopping.php:** Adds a new topping to the database.
+* **DataBase.php:** Contains database interaction functions.
+* **DataBaseConfig.php:** Configures database connection settings.
+* **DeleteCategory.php:** Deletes a category from the database.
+* **DeleteProduct.php:** Deletes a product from the database.
+* **DeleteTopping.php:** Deletes a topping from the database.
+* **GetCategories.php:** Retrieves all categories from the database.
+* **GetItems.php:** Retrieves details of items in the database.
+* **GetOrder.php:** Retrieves details of a specific order.
+* **GetOrderStrings.php:** Retrieves strings related to orders.
+* **GetOrders.php:** Retrieves all orders from the database.
+* **GetProductToppings.php:** Retrieves toppings for a specific product.
+* **GetProducts.php:** Retrieves all products from the database.
+* **GetToppings.php:** Retrieves all toppings from the database.
+* **SendOrder.php:** Sends a new order to the database.
+* **SubmitReport.php:** Submits a report to the database.
 
 ## Setup
 
