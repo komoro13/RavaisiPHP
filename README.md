@@ -94,8 +94,11 @@ function sendOrder($table, $order_string, $order_table, $price)
 
 The RavaisiPDA application utilizes a MySQL database consisting of four main tables: **Orders**, **Products**, **Categories**, and **Toppings**.
 ### Orders
-<img src="rsc/database.csv">
+
+<img src="rsc/database.png">
+
 *Orders Table: Displays all incoming orders, including details such as order ID, serialized order string, date and time of submission, total price, order index, and status indicators for loaded, printed, and closed orders.*
+
 ### 1. Orders Table
 * **id**: Unique identifier for each order.
 * **order_string**: Contains the serialized representation of the order.
